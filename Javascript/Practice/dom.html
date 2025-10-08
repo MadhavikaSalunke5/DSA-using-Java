@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+    <style>
+        .odd {
+            background-color: pink;
+            color: black;
+        }
+        .even {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="wishing"></h1>
+    <button id="pressBtn" onclick="pressedButton()">Pressed 0 Times</button>
+    <button onclick="resetCounter()">Reset</button>
+    
+    <script>
+        // get saved count (convert string to number)
+        let count = parseInt(localStorage.getItem("buttonPressCount")) || 0;
+
+        // function to update button text & color
+        function updateButton() {
+            let btn = document.getElementById("pressBtn");
+            btn.innerText = `Pressed ${count} Times`;
+            btn.className = count % 2 === 0 ? "even" : "odd";
+        }
+
+        function pressedButton() {
+            count++;
+            localStorage.setItem("buttonPressCount", count);
+            console.log("Button Pressed");
+            updateButton();
+        }
+
+        function resetCounter() {
+            count = 0;
+            localStorage.setItem("buttonPressCount", count);
+            updateButton();
+        }
+
+        function Greeting(personName) {
+            let now = new Date();       
+            let hours = now.getHours(); 
+            let message = "";
+
+            if (hours < 12) {
+                message = `Good Morning ${personName}`;
+            } else if (hours < 18) {
+                message = `Good Afternoon ${personName}`;
+            } else {
+                message = `Good Night ${personName}`;
+            }
+
+            document.getElementById("wishing").innerText = message;
+        }
+
+        // initialize button & greeting on load
+        updateButton();
+        Greeting("Madhavika");
+    </script>
+</body>
+</html>
+
+

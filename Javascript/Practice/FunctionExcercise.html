@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Exercise</title>
+</head>
+<body>
+    <script>
+        function checkNumberisoddoreven(num) {
+            if (num % 2 === 0) {
+                return 'The number is even';
+            } else {
+                return 'The number is odd';
+            }
+        }
+
+        // Call the function correctly
+        let result = checkNumberisoddoreven(5);
+        console.log(result); // This will print "The number is odd"
+
+        function largerNumber(a,b)
+        {
+            if(a>b)
+            { return' The larger number is ' + a; }
+            else if(b>a)
+            { return 'The larger number is ' + b; }
+            else
+            { return 'Both numbers are equal'; }
+        }
+        let end= largerNumber(10,12);
+        console.log(end); // This will print "The larger number is 12"
+
+        function ConvertToFahrenheit(Celsius) {
+            return fahrenheit=(9/5)*Celsius+32;
+        }
+        let solve=ConvertToFahrenheit(30);
+        console.log(solve); // This will print the Fahrenheit equivalent of 30 degrees Celsius
+
+    </script>
+</body>
+</html>

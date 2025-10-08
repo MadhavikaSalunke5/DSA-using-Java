@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        /*let product={
+            company:'mango',
+            price:100,
+            itemname:'T-shirt',
+            color:'blue',
+            DisplayPrice:function(){
+                console.log(`The price of the ${this.itemname} is ${this.price} and the color is ${this.color}`);
+            }
+        };
+        product.DisplayPrice(); // This will call the method and display the price and color of the item
+
+        console.log(product); 
+        console.log(product.company.toUpperCase()); */
+        let myntraProduct={
+            company:'Gucci',
+            price:3000,
+            item_name:'Necklace',
+            color:'gold',
+            'dilivery-time': '2 days',
+
+        }
+        let copymyntraProduct=myntraProduct;
+        console.log(myntraProduct);
+        copymyntraProduct.price=5000;
+        console.log(myntraProduct);
+        console.log(myntraProduct['dilivery-time']); // Accessing property with hyphen using bracket notation
+        let {company, price, item_name, color} = myntraProduct; // Destructuring the object
+        console.log(`The product is ${item_name} from ${company} and it costs ${price} with color ${color}`);
+
+        let product1 = {
+            company: 'Nike',
+            price: 1500,
+            item_name: 'Shoes',
+            color: 'black'};
+        let product2 = {
+            company: 'Nike',
+            price: 1500,
+            item_name: 'Shoes', 
+            color: 'black'};
+         function isIdenticalmyntraProducts(product1, product2) {
+            if(product1.company === product2.company &&
+        product1.price === product2.price &&
+        product1.item_name === product2.item_name &&
+        product1.color === product2.color){
+                return 'The products are identical';
+            } else {
+                return 'The products are not identical';
+            }
+    
+        }
+        console.log(isIdenticalmyntraProducts(product1, product2)); // This will print "The products are identical"
+
+            
+    </script>
+    
+</body>
+</html>

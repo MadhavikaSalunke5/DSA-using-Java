@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Game</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+
+        button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin: 15px;
+            font-size: 1.3rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+        }
+
+        button:hover {
+            background: #e68900;
+            transform: scale(1.1);
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.5);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <h1>🏏 BAT BALL STUMP GAME 🏏</h1>
+
+    <button onclick="const userChoicems='You have chosen Bat!';
+    let computerChoic;
+    let randomNumbe = Math.random() * 3;
+    if (randomNumbe > 0 && randomNumbe <= 1) {
+        computerChoic = 'Bat'; 
+    }
+    else if (randomNumbe > 1 && randomNumbe <= 2) {
+        computerChoic = 'Ball';
+    }
+    else {
+        computerChoic = 'Stump';
+    }
+    const computerChoicems=`Computer choice is ${computerChoic}`;
+    let resultMs;
+    if (computerChoic === 'Ball') {
+        resultMs='User Won';
+    } 
+    else if (computerChoic === 'Bat') {
+        resultMs='Draw';
+    }
+    else if (computerChoic === 'Stump') {
+        resultMs='Computer Won';
+    }
+    alert(userChoicems + '\n' + computerChoicems + '\n' + resultMs);">BAT</button>
+
+    <button onclick="const userChoicemsg='You have chosen Ball!';
+    let computerChoice;
+    let randomNumber = Math.random() * 3;
+    if (randomNumber > 0 && randomNumber <= 1) {
+        computerChoice = 'Bat'; 
+    }
+    else if (randomNumber > 1 && randomNumber <= 2) {
+        computerChoice = 'Ball';
+    }
+    else {
+        computerChoice = 'Stump';
+    }
+    const computerChoicemsg=`Computer choice is ${computerChoice}`;
+    let resultMsg;
+    if (computerChoice === 'Ball') {
+        resultMsg='User Won';
+    } 
+    else if (computerChoice === 'Bat') {
+        resultMsg='Draw';
+    }
+    else if (computerChoice === 'Stump') {
+        resultMsg='Computer Won';
+    }
+    alert(userChoicemsg + '\n' + computerChoicemsg + '\n' + resultMsg);">BALL</button>
+
+    <button onclick="const userChoicem='You have chosen Stump!';
+    let computerChoi;
+    let randomNumb = Math.random() * 3;
+    if (randomNumb > 0 && randomNumb <= 1) {
+        computerChoi = 'Bat'; 
+    }
+    else if (randomNumb > 1 && randomNumb <= 2) {
+        computerChoi = 'Ball';
+    }
+    else {
+        computerChoi = 'Stump';
+    }
+    const computerChoicem=`Computer choice is ${computerChoi}`;
+    let resultM;
+    if (computerChoi === 'Ball') {
+        resultM='User Won';
+    } 
+    else if (computerChoi === 'Bat') {
+        resultM='Draw';
+    }
+    else if (computerChoi === 'Stump') {
+        resultM='Computer Won';
+    }
+    alert(userChoicem + '\n' + computerChoicem + '\n' + resultM);">STUMP</button>
+
+    <script>
+        console.log(5 > 8);
+    </script>
+</body>
+</html>

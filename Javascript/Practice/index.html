@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Myntra Bag</title>
+    <style>
+        .addtobag{
+            background-color:pink;
+            color:black;
+            border-style:solid;
+            border-color:blue;
+            border: radius 100px;
+            padding:5px 15px;
+
+        }
+        .MOVETOWISHLIST{
+            background-color:pink;
+            color:black;
+            border-style:solid;
+            border-color:blue;
+            border-radius: 100x;
+            padding:5px 15px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to my Myntra Page</h1>
+
+    <button class="addtobag"onclick="bagCount+=1;
+    const addtobagbutton=document.querySelector('#cart-summary').innerText=`our bag has${bagCount}items`;">ADD TO BAG</button>
+    <button class="MOVETOWISHLIST">MOVE TO WISHLIST</button>
+    <h1 id="cart-summary"></h1>
+    <script>
+        let bagCount=5;
+        const addtobagbutton=document.querySelector('#cart-summary').innerText=`our bag has${bagCount}items`;
+        const MOVETOWISHLISTbutton=document.queryselector('#MOVETOWISHLIST');
+        
+        
+        
+    </script>
+
+</body>
+</html>

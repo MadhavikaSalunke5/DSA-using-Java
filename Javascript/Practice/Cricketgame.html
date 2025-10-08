@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Bat, Ball, Stump!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #0f2027; /* Dark blue-gray */
+            background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+            color: #e0e0e0;
+            text-align: center;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 900px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #ff9900;
+            text-shadow: 0 0 15px #ff9900;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        button {
+            background: #1abc9c; /* Teal/Cyan */
+            color: #fff;
+            border: none;
+            padding: 20px 30px;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 700;
+            border-radius: 18px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            min-width: 180px;
+            text-transform: uppercase;
+        }
+
+        button.choice-btn:hover {
+            background: #16a085;
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        #resetBtn {
+            background: #e74c3c; /* Red */
+        }
+
+        #resetBtn:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
+        }
+
+        #result, #scoreboard {
+            margin: 25px 0;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #3498db; /* Blue */
+            text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+        }
+
+        #scoreboard {
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
+            font-weight: 400;
+            color: #bdc3c7; /* Gray */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏏 BAT, BALL, STUMP 🏏</h1>
+
+        <div class="button-container">
+            <button class="choice-btn" onclick="playGame('Bat')">
+                <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 2h-11a.5.5 0 00-.5.5v2.5a.5.5 0 00.5.5h11a.5.5 0 00.5-.5V2.5a.5.5 0 00-.5-.5zM10 9h-4a.5.5 0 00-.5.5v11a.5.5 0 00.5.5h4a.5.5 0 00.5-.5V9.5a.5.5 0 00-.5-.5zM18.5 7h-5a.5.5 0 00-.5.5v.5a.5.5 0 00.5.5h5a.5.5 0 00.5-.5V7.5a.5.5 0 00-.5-.5z"/></svg>
+                Bat
+            </button>
+            <button class="choice-btn" onclick="playGame('Ball')">
+                <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                Ball
+            </button>
+            <button class="choice-btn" onclick="playGame('Stump')">
+                <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2h-1a1 1 0 00-1 1v18a1 1 0 001 1h1a1 1 0 001-1V3a1 1 0 00-1-1zm6 0h-1a1 1 0 00-1 1v18a1 1 0 001 1h1a1 1 0 001-1V3a1 1 0 00-1-1zm-12 0H5a1 1 0 00-1 1v18a1 1 0 001 1h1a1 1 0 001-1V3a1 1 0 00-1-1z"/></svg>
+                Stump
+            </button>
+        </div>
+
+        <p id="result"></p>
+        <p id="scoreboard"></p>
+
+        <button id="resetBtn" onclick="resetScore()">
+            <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6V3L7 8l5 5V9c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9H3c0 6.07 4.93 11 11 11s11-4.93 11-11c0-6.07-4.93-11-11-11z"/></svg>
+            Reset Score
+        </button>
+    </div>
+
+    <script>
+        let score = JSON.parse(localStorage.getItem('cricketGameScore')) || {
+            win: 0,
+            lost: 0,
+            draw: 0
+        };
+
+        function displayScore() {
+            document.getElementById("scoreboard").innerText =
+                `Wins: ${score.win} | Losses: ${score.lost} | Draws: ${score.draw}`;
+        }
+        displayScore();
+
+        function getComputerChoice() {
+            let randomNumber = Math.random() * 3;
+            if (randomNumber <= 1) return 'Bat';
+            else if (randomNumber <= 2) return 'Ball';
+            else return 'Stump';
+        }
+
+        function playGame(userChoice) {
+            const computerChoice = getComputerChoice();
+            let resultMessage = `You chose ${userChoice}. Computer chose ${computerChoice}. `;
+
+            if (userChoice === computerChoice) {
+                score.draw++;
+                resultMessage += "It's a draw! 🤝";
+            } else if (
+                (userChoice === 'Bat' && computerChoice === 'Ball') ||
+                (userChoice === 'Ball' && computerChoice === 'Stump') ||
+                (userChoice === 'Stump' && computerChoice === 'Bat')
+            ) {
+                score.win++;
+                resultMessage += "🎉 You win!";
+            } else {
+                score.lost++;
+                resultMessage += "😢 You lose!";
+            }
+
+            document.getElementById("result").innerText = resultMessage;
+            localStorage.setItem('cricketGameScore', JSON.stringify(score));
+            displayScore();
+        }
+
+        function resetScore() {
+            score = { win: 0, lost: 0, draw: 0 };
+            localStorage.removeItem('cricketGameScore');
+            displayScore();
+            document.getElementById("result").innerText = "Score has been reset! 🔄";
+        }
+    </script>
+</body>
+</html>
+
+

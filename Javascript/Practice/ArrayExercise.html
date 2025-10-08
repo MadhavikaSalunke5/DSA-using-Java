@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Exercise</title>
+</head>
+<body>
+    <script>
+        /*
+        let arr=[5,6];
+        console.log(arr);
+        arr.unshift(4);
+        console.log(arr);
+        arr.push(7);
+        console.log(arr);
+        console.log(getElement(arr, 2));
+
+        function getElement(arr,position){
+            return arr[position];
+        }
+        let arr1=[1,2,3,4,5];
+
+        function arrCopy(arr){
+            return arr.slice(0, arr.length);
+        }
+        console.log(arr1);
+        console.log(arr1.slice(1,4));*/
+
+    
+        function isPrime(num){
+            for(let i=2;i<num;i++)
+            {
+                if(num%i==0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        let num=2;
+        let count=0;
+        while(count<5){
+            if(isPrime(num)){
+                console.log(num);
+                count++;
+            }
+            num++;
+        }
+        console.log("Done");
+
+        //reverse order
+        for(let p=5;p>0;p--)
+        {
+            console.log('The number is:',  p);
+        }
+        console.log("Done");
+
+        //postive number print
+        let arr4=[1,-6,5,7,-98];
+        console.log(arr4);
+        for(let i=0;i<arr4.length;i++)
+        {
+            if(arr4[i]<0)
+            {
+                console.log(`${arr4[i]} is negative number`);
+                continue;
+            }
+            else{
+                console.log("Positive number is:", arr4[i]);
+            }
+        }
+        //positive number print 
+        let arr5=[1,-6,5,7,-98];
+        console.log(arr5);
+        for(let o=0;o<arr5.length;o++)
+        {
+            if(arr5[o]<0) continue;
+            console.log("Positive number is:", arr5[o]);
+        }
+        //concate the strings
+        let array=['KG','Coding','Javascript','Course','is','Awesome'];
+        let str='';
+        for(let r =0;r<array.length;r++)
+        {
+            str+=array[r]+' ';
+        }
+        console.log(str);
+    
+    </script>
+    
+</body>
+</html>

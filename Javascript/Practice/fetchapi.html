@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+</head>
+<body>
+    <script>
+    let info = fetch('https://jsonplaceholder.typicode.com/todos/1');
+
+    info.then((response) => {
+        return response.json();  // convert response to JSON
+    }).then((data) => {
+        console.log("Todo Data:", data);  // print the actual data
+    }).catch((err) => {
+        console.log("Error:", err); // print error directly
+    });
+
+    console.log("Hello world");
+</script>
+
+    
+</body>
+</html>

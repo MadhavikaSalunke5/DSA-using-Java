@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+<body>
+    <script>
+        /*let request=new XMLHttpRequest();
+        request.open('GET','https://jsonplaceholder.typicode.com/todos/1');
+        request.send();//sending req to server
+        //why using this becz may be server takes time to response
+        setTimeout(()=> 
+        {
+            console.log(request.responseText);},2000);*/
+        const displayData=(callback)=>{
+        let request=new XMLHttpRequest();
+        request.open('GET','https://jsonplaceholder.typicode.com/todos/1');
+        request.send();
+        request.addEventListener('readystatechange',()=>{
+            if(request.readyState===4 && request.status===200)
+            {
+                console.log(request.responseText);
+                callback(undefined,request.responseText);
+            }
+            else if(request.readyState===4){
+                console.log("Error");
+            }
+            callback();
+            
+        });
+    }
+    displayData((error,data)=>{
+        console.log("Done");
+    });
+
+
+    </script>
+    
+</body>
+</html>
